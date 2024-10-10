@@ -1,52 +1,138 @@
-/* General Page Styling */
-body {
-    font-family: Arial, sans-serif;
+/* General styling for the body and html */
+html, body {
+    width: 100%;
+    height: 100%;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
 }
 
-/* Navigation Bar Styling */
-nav {
-    background-color: #333;
-    padding: 1em;
+/* User Navigation Bar */
+.user-navigation-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #B19CD9;
+    padding: 10px 15px;
+    color: rgb(67, 24, 116);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
 }
 
-nav ul {
+.user-nav-logo {
+    display: flex;
+    align-items: center;
+}
+
+.user-logo {
+    height: 45px;
+    margin-right: 10px;
+}
+
+.user-nav-titles {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.user-nav-title {
+    font-family: inherit;
+    font-weight: bolder;
+    color: rgb(86, 28, 109);
+}
+
+.main-title {
+    font-size: 10px;
+}
+
+.sub-title {
+    font-size: 10px;
+}
+
+.user-nav-menu {
+    display: flex;
+    gap: 15px;
     list-style: none;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
+    margin-left: auto;
 }
 
-nav ul li {
-    margin: 0 15px;
+.user-nav-menu li {
+    display: inline;
 }
 
-nav ul li a {
-    text-decoration: none;
+.user-nav-menu li a {
+    font-family: inherit;
     color: white;
-    font-size: 1.2em;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
 }
 
-nav ul li a:hover {
-    color: #ff6347;
+.user-nav-menu li a:hover {
+    color: #f0e6f7;
 }
 
-/* Home Page Section Styling */
-section {
-    padding: 20px;
-    text-align: center;
+.user-profile-icon {
+    display: block;
+    margin-left: 20px;
+    cursor: pointer;
 }
 
-h1 {
-    color: #333;
+.user-profile-icon img {
+    height: 33px;
+    cursor: pointer;
+    margin-right: 27px;
 }
 
-p {
-    color: #666;
-    font-size: 1.1em;
-    max-width: 600px;
-    margin: 0 auto;
+/* Slider CSS */
+.slider-container {
+    position: relative;
+    max-width: 100%;
+    margin: 70px auto; /* Reduced margin-top for a closer position to the nav bar */
+}
+
+.slider img {
+    width: 100%;
+    height: 500px; /* Set a fixed height for all images */
+    object-fit: cover; /* Ensure the images maintain aspect ratio */
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+.prev {
+    left: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.fade {
+    animation: fade 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
 }
