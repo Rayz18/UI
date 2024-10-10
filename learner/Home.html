@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advocacy Campaign</title>
-    <link rel="stylesheet" href="../styles/learner/AdvocacyCampaign.css">
+    <title>Home</title>
+    <link rel="stylesheet" href="../styles/learner/Home.css">
 </head>
 
 <body>
@@ -46,32 +46,59 @@
         </div>
     </nav>
 
-    <!-- Advocacy Campaign Section -->
-    <div class="advocacy-campaign-container">
-        <div class="content">
-            <div class="title-search">
-                <h1>ADVOCACY CAMPAIGN</h1>
-                <div class="search-bar">
-                    <input type="text" placeholder="Search" id="searchTerm">
-                    <button onclick="search()">🔍</button>
-                </div>
+    <!-- Image Slider Section -->
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slide fade">
+                <img src="../images/A.jpg" class="slider-image">
+            </div>
+            <div class="slide fade">
+                <img src="../images/B.jpg" class="slider-image">
+            </div>
+            <div class="slide fade">
+                <img src="../images/C.jpg" class="slider-image">
             </div>
         </div>
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
     </div>
 
     <!-- JavaScript for interactivity -->
     <script>
-        function search() {
-            const searchTerm = document.getElementById('searchTerm').value;
-            alert('Search functionality not yet implemented. Searching for: ' + searchTerm);
+        let slideIndex = 0;
+        let slideInterval;
+
+        // Function to show the slides
+        function showSlides() {
+            let slides = document.getElementsByClassName("slide");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {
+                slideIndex = 1;
+            }
+            slides[slideIndex - 1].style.display = "block";
+            slideInterval = setTimeout(showSlides, 2000); // Change image every 2 seconds
         }
 
-        // Profile popup toggle
+        // Function to manually navigate slides
+        function plusSlides(n) {
+            clearTimeout(slideInterval); // Clear the current timer
+            slideIndex += n - 1; // Adjust slide index
+            showSlides(); // Call showSlides to display the correct slide
+        }
+
+        // Start the slideshow
+        showSlides();
+
+        // Profile Popup Toggle
         function togglePopup() {
             const popup = document.getElementById('profile-popup');
             popup.style.display = (popup.style.display === "none" || popup.style.display === "") ? "block" : "none";
         }
 
+        // Close Popup
         function closePopup() {
             document.getElementById('profile-popup').style.display = "none";
         }
