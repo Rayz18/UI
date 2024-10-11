@@ -1,0 +1,184 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    overflow-y: auto;   /* Ensure vertical scrolling only */
+    font-family: Arial, sans-serif;
+    box-sizing: border-box; /* Make sure padding/margins are handled properly */
+}
+
+/* Apply box-sizing to all elements to prevent overflow */
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+/* User Navigation Bar */
+.user-navigation-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #B19CD9;
+    padding: 10px 20px;
+    color: rgb(67, 24, 116);
+    width: 100%;
+    margin: 0;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Ensure it appears above other content */
+    overflow: hidden;
+}
+
+body {
+    padding-top: 65px; 
+    margin: 0;
+    overflow-x: hidden; 
+}
+
+.user-nav-logo {
+    display: flex;
+    align-items: center;
+}
+
+.user-logo {
+    height: 45px;
+    margin-right: 5px;
+}
+
+.user-nav-titles {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.user-nav-title {
+    font-family: inherit;
+    font-weight: bolder;
+    color: rgb(86, 28, 109);
+}
+
+.main-title {
+    font-size: 10px;
+}
+
+.sub-title {
+    font-size: 10px;
+}
+
+.user-nav-menu {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-left: auto;
+}
+
+.user-nav-menu li {
+    display: inline;
+}
+
+.user-nav-menu li a {
+    font-family: inherit;
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.user-nav-menu li a:hover {
+    color: #f0e6f7;
+}
+
+.user-profile-icon {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.user-profile-icon img {
+    height: 33px;
+    cursor: pointer;
+}
+
+/* Title Section */
+.title-section {
+    text-align: center;
+    padding: 2rem 0;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.title-section h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #6b46c1;
+}
+
+.courses-container {
+    display: flex;
+    flex-direction: column; /* Change to column for vertical layout */
+    gap: 1.5rem; /* Space between the courses */
+    padding: 2rem;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    margin: 2rem auto;
+    max-width: 80%;
+}
+
+.course-card {
+    width: 100%; /* Full width within the container */
+    max-width: 800px; /* Ensure cards don't get too wide */
+    display: flex;
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 0 auto; /* Center the course cards */
+    flex-direction: row; /* Ensure image and text are side by side */
+    gap: 1rem;
+}
+
+/* Update the course image */
+.course-image img {
+    width: 200px; /* Smaller width for the image */
+    height: 300px;
+    border-radius: 0.5rem;
+}
+
+.course-image .placeholder {
+    width: 200px;
+    height: 300px;
+}
+
+/* Adjust the course description */
+.course-description {
+    flex: 1; /* Make the text fill the remaining space */
+    padding-top: 0; /* Remove extra padding */
+}
+
+.course-header h2 {
+    font-size: 1.2rem; /* Slightly smaller title */
+}
+
+.course-text {
+    margin-top: 0.5rem;
+}
+
+.button {
+    padding: 0.5rem 1rem;
+    background-color: #6b46c1;
+    color: #fff;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    margin-top: 1rem;
+}
+
+.course-date {
+    margin-top: 0.5rem;
+    color: #a0aec0;
+}

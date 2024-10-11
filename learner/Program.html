@@ -1,1 +1,92 @@
-<link rel="stylesheet" href="../styles/learner/Program.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programs Page</title>
+    <link rel="stylesheet" href="../styles/learner/Program.css">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="user-navigation-bar">
+        <!-- Logo Section -->
+        <div class="user-nav-logo">
+            <img src="../images/BSU.png" alt="BSU Logo" class="user-logo">
+            <img src="../images/GAD.png" alt="GAD Logo" class="user-logo">
+            <div class="user-nav-titles">
+                <span class="user-nav-title main-title">BATANGAS STATE UNIVERSITY - THE NATIONAL ENGINEERING UNIVERSITY</span>
+                <span class="user-nav-title sub-title">Gender and Development Unit</span>
+            </div>
+        </div>
+
+        <!-- Navigation Menu -->
+        <ul class="user-nav-menu">
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="AboutUs.html">About Us</a></li>
+            <li><a href="Program.html">Program</a></li>
+            <li><a href="AdvocacyCampaign.html">Advocacy Campaign</a></li>
+            <li><a href="Certificate.html">Certificate</a></li>
+            <li><a href="ConnectWithUs.html">Connect With Us</a></li>
+        </ul>
+
+        <!-- Profile Icon -->
+        <div class="user-profile-icon" onclick="togglePopup()">
+            <img src="../images/icon.png" alt="Profile" class="user-profile">
+        </div>
+
+        <!-- Profile Popup -->
+        <div id="profile-popup" class="profile-popup" style="display: none;">
+           
+        </div>
+    </nav>
+
+    <!-- Programs Section -->
+    <div class="program-container">
+        <div class="content">
+            <div class="term-search">
+                <h1>PROGRAMS</h1>
+                <div class="search-container">
+                    <input type="text" placeholder="Search" id="search">
+                    <button onclick="search()">🔍</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Program Images and Titles -->
+    <div class="grid">
+        <!-- Program 1 -->
+        <div>
+            <a href="../learner/Program1.html">
+                <img src="../images/A.jpg" alt="Webinar on Gender-Based Violence">
+                <h3>Webinar on Laws on Gender-Based Violence</h3>
+            </a>
+        </div>
+
+        <!-- Program 2 -->
+        <div>
+            <a href="#">
+                <img src="https://placehold.co/600x400" alt="PRIDE: A Celebration of Self">
+                <h3>PRIDE: A Celebration of Self</h3>
+            </a>
+        </div>
+
+        <!-- Program 3 -->
+        <div>
+            <a href="#">
+                <img src="https://placehold.co/600x400" alt="University Student Council FilipinaLakas: Zero Tolerance on Violence">
+                <h3>University Student Council FilipinaLakas: Zero Tolerance on Violence Against Women</h3>
+            </a>
+        </div>
+
+        <!-- Program 4 -->
+        <div>
+            <a href="#">
+                <img src="https://placehold.co/600x400" alt="Gender Responsive Disaster Preparedness and Response">
+                <h3>Gender Responsive Disaster Preparedness and Response</h3>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
