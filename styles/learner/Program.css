@@ -5,6 +5,14 @@ html, body {
     padding: 0;
     background-color: #f4f4f4;
     font-family: Arial, sans-serif;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    overflow-y: auto;   /* Ensure vertical scrolling only */
+    box-sizing: border-box; /* Ensure padding/margins are handled properly */
+}
+
+/* Apply box-sizing to all elements to prevent overflow */
+*, *::before, *::after {
+    box-sizing: inherit;
 }
 
 /* User Navigation Bar */
@@ -13,13 +21,14 @@ html, body {
     align-items: center;
     justify-content: space-between;
     background-color: #B19CD9;
-    padding: 10px 15px; /* Adjusted padding to move navigation bar to the left */
+    padding: 10px 20px; /* Adjusted padding to move navigation bar to the left */
     color: rgb(67, 24, 116);
     width: 100%;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1000;
+    overflow: hidden; /* Prevents overflow in the navigation bar */
 }
 
 .user-nav-logo {
@@ -29,7 +38,7 @@ html, body {
 
 .user-logo {
     height: 45px;
-    margin-right: 10px;
+    margin-right: 5px;
 }
 
 .user-nav-titles {
@@ -81,14 +90,13 @@ html, body {
 /* Ensure the user profile icon is visible */
 .user-profile-icon {
     display: block;
-    margin-left: 20px; /* Add space between the nav menu and the user icon */
+    margin-left: 10px; /* Add space between the nav menu and the user icon */
     cursor: pointer;
 }
 
 .user-profile-icon img {
     height: 33px;
     cursor: pointer;
-    margin-right: 27px;
 }
 
 /* Programs section */
@@ -108,7 +116,7 @@ html, body {
 }
 
 h1 {
-    color:rgb(86, 28, 109);
+    color: rgb(86, 28, 109);
     margin-bottom: 12px; /* Adjusted margin for title */
 }
 
@@ -147,7 +155,6 @@ h1 {
     text-align: center;
 }
 
-
 .grid {
     display: grid;
     gap: 1.5rem;
@@ -172,4 +179,18 @@ h1 {
 
 .grid h3:hover {
     text-decoration: underline;
+}
+
+/* Customize scrollbar */
+::-webkit-scrollbar {
+    width: 6px; /* Set scrollbar width */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #cac5d35d; /* Scrollbar color */
+    border-radius: 6px; /* Rounded scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background-color: #f4f4f4; /* Scrollbar track color */
 }

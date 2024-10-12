@@ -9,11 +9,26 @@ html, body {
     overflow-y: auto;   /* Ensure vertical scrolling only */
     font-family: Arial, sans-serif;
     box-sizing: border-box; /* Make sure padding/margins are handled properly */
+    padding-top: 30px; /* Reduced space to bring content closer to the navbar */
 }
 
 /* Apply box-sizing to all elements to prevent overflow */
 *, *::before, *::after {
     box-sizing: inherit;
+}
+
+/* Custom Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 6px; /* Set scrollbar width */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #cac5d35d; /* Scrollbar color */
+    border-radius: 6px; /* Rounded scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background-color: #f4f4f4; /* Scrollbar track color */
 }
 
 /* User Navigation Bar */
@@ -31,12 +46,6 @@ html, body {
     left: 0;
     z-index: 1000; /* Ensure it appears above other content */
     overflow: hidden;
-}
-
-body {
-    padding-top: 65px; /* Reduced space to bring content closer to the navbar */
-    margin: 0;
-    overflow-x: hidden; /* Ensure no horizontal scroll bars */
 }
 
 .user-nav-logo {
@@ -95,8 +104,8 @@ body {
 }
 
 .user-profile-icon {
-    display: flex;
-    align-items: center;
+    display: block;
+    cursor: pointer;
     margin-left: 10px;
 }
 

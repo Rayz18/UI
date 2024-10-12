@@ -6,6 +6,29 @@ html, body {
     padding: 0;
     background-color: #f4f4f4;
     font-family: Arial, sans-serif;
+    overflow-x: hidden; /* Ensure no horizontal scroll bars */
+    overflow-y: auto;   /* Enable vertical scrolling only */
+    padding-top: 1px; /* Adjust this value based on the height of the navigation bar */
+    box-sizing: border-box; /* Ensure padding/margins are handled properly */
+}
+
+/* Apply box-sizing to all elements to prevent overflow */
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+/* Custom Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 6px; /* Set scrollbar width */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #cac5d35d; /* Scrollbar color */
+    border-radius: 6px; /* Rounded scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background-color: #f4f4f4; /* Scrollbar track color */
 }
 
 /* User Navigation Bar */
@@ -14,7 +37,7 @@ html, body {
     align-items: center;
     justify-content: space-between;
     background-color: #B19CD9;
-    padding: 10px 15px;
+    padding: 10px 20px;
     color: rgb(67, 24, 116);
     width: 100%;
     position: fixed;
@@ -30,7 +53,7 @@ html, body {
 
 .user-logo {
     height: 45px;
-    margin-right: 10px;
+    margin-right: 5px;
 }
 
 .user-nav-titles {
@@ -80,14 +103,13 @@ html, body {
 
 .user-profile-icon {
     display: block;
-    margin-left: 20px;
+    margin-left: 10px;
     cursor: pointer;
 }
 
 .user-profile-icon img {
     height: 33px;
     cursor: pointer;
-    margin-right: 27px;
 }
 
 /* Slider CSS */
