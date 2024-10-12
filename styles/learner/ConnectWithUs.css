@@ -120,7 +120,7 @@ html, body {
 }
 
 .title {
-    color: #9c27b0;
+    color: rgb(86, 28, 109);
     font-size: 26px; /* Increased the title size for consistency with other pages */
     font-weight: bold;
     text-align: center;
@@ -150,7 +150,7 @@ html, body {
 }
 
 .location img {
-    width: 450px; /* Adjusted width for larger images */
+    width: 360px; /* Adjusted width for larger images */
     height: auto; /* Maintains aspect ratio */
     border-radius: 8px;
     object-fit: cover; /* Ensures the image maintains aspect ratio */
