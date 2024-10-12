@@ -1,52 +1,196 @@
-/* General Page Styling */
-body {
-    font-family: Arial, sans-serif;
+html, body {
+    width: 100%;
+    height: 100%;
     margin: 0;
     padding: 0;
-    background-color: #fafafa;
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    overflow-y: auto;   /* Ensure vertical scrolling only */
+    box-sizing: border-box; /* Ensure padding/margins are handled properly */
 }
 
-/* Navigation Bar Styling */
-nav {
-    background-color: #333;
-    padding: 1em;
+/* Apply box-sizing to all elements to prevent overflow */
+*, *::before, *::after {
+    box-sizing: inherit;
 }
 
-nav ul {
+/* User Navigation Bar */
+.user-navigation-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #B19CD9;
+    padding: 10px 20px; /* Adjusted padding to move navigation bar to the left */
+    color: rgb(67, 24, 116);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    overflow: hidden; /* Prevents overflow in the navigation bar */
+}
+
+.user-nav-logo {
+    display: flex;
+    align-items: center;
+}
+
+.user-logo {
+    height: 45px;
+    margin-right: 5px;
+}
+
+.user-nav-titles {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.user-nav-title {
+    font-family: inherit;
+    font-weight: bolder;
+    color: rgb(86, 28, 109);
+}
+
+.main-title {
+    font-size: 10px;
+}
+
+.sub-title {
+    font-size: 10px;
+}
+
+/* Updated font-size for user navigation menu */
+.user-nav-menu {
+    display: flex;
+    gap: 15px;
     list-style: none;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
+    margin-left: auto; /* Let the menu move to the left, next to the user icon */
 }
 
-nav ul li {
-    margin: 0 15px;
+.user-nav-menu li {
+    display: inline;
 }
 
-nav ul li a {
-    text-decoration: none;
+.user-nav-menu li a {
+    font-family: inherit;
     color: white;
-    font-size: 1.2em;
+    text-decoration: none;
+    font-size: 12px; /* Reduced font size */
+    font-weight: bold;
 }
 
-nav ul li a:hover {
-    color: #ff6347;
+.user-nav-menu li a:hover {
+    color: #f0e6f7;
 }
 
-/* Services Page Section Styling */
-section {
-    padding: 20px;
+/* Ensure the user profile icon is visible */
+.user-profile-icon {
+    display: block;
+    margin-left: 10px; /* Add space between the nav menu and the user icon */
+    cursor: pointer;
+}
+
+.user-profile-icon img {
+    height: 33px;
+    cursor: pointer;
+}
+
+/* Programs section */
+.program-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 70px; 
     text-align: center;
 }
 
-h1 {
-    color: #444;
+.term-search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 30px 0; /* Reduced margin to move everything upwards */
 }
 
-p {
-    color: #777;
-    font-size: 1.1em;
-    max-width: 600px;
+h1 {
+    color: rgb(86, 28, 109);
+    margin-bottom: 12px; /* Adjusted margin for title */
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+.search-container input {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #cc66cc;
+    border-radius: 5px;
+    width: 200px;
+    margin-left: 1000px;
+}
+
+.search-container button {
+    background-color: #cc66cc;
+    color: white;
+    border: none;
+    padding: 8px;
+    margin-left: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-container button:hover {
+    background-color: #b33f8b;
+}
+
+/* Program section */
+.program-container {
     margin: 0 auto;
+    padding-top: 70px; 
+    text-align: center;
+}
+
+.grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(2, 1fr); 
+    max-width: 1200px; /* Limits the grid's width */
+    margin: 0 auto; /* Centers the grid */   
+}
+
+.grid img {
+    width: 100%;
+    height: 15rem; /* Image height */
+    object-fit: cover;
+    border-radius: 0.5rem; /* Added border-radius for a softer look */
+}
+
+.grid h3 {
+    color: #3182ce;
+    font-size: 15px;
+    margin-top: 5px;
+    text-decoration: none;
+}
+
+.grid h3:hover {
+    text-decoration: underline;
+}
+
+/* Customize scrollbar */
+::-webkit-scrollbar {
+    width: 6px; /* Set scrollbar width */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #cac5d35d; /* Scrollbar color */
+    border-radius: 6px; /* Rounded scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background-color: #f4f4f4; /* Scrollbar track color */
 }
