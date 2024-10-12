@@ -160,7 +160,7 @@ h1 {
     display: grid;
     gap: 1.5rem;
     grid-template-columns: repeat(2, 1fr); 
-    max-width: 1200px; /* Limits the grid's width */
+    max-width: 900px; /* Limits the grid's width */
     margin: 0 auto; /* Centers the grid */   
 }
 
