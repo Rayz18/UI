@@ -88,6 +88,7 @@ html, body {
 }
 
 .user-nav-menu li a {
+
     font-family: inherit;
     color: white;
     text-decoration: none;
@@ -101,13 +102,13 @@ html, body {
 
 .user-profile-icon {
     display: block;
+
     margin-left: 10px;
     cursor: pointer;
 }
 
 .user-profile-icon img {
     height: 33px;
-    cursor: pointer;
 }
 
 /* Content Styling */
@@ -120,7 +121,7 @@ html, body {
 }
 
 .title {
-    color: #9c27b0;
+    color: rgb(86, 28, 109);
     font-size: 26px; /* Increased the title size for consistency with other pages */
     font-weight: bold;
     text-align: center;
@@ -150,7 +151,7 @@ html, body {
 }
 
 .location img {
-    width: 450px; /* Adjusted width for larger images */
+    width: 360px; /* Adjusted width for larger images */
     height: auto; /* Maintains aspect ratio */
     border-radius: 8px;
     object-fit: cover; /* Ensures the image maintains aspect ratio */
@@ -183,4 +184,5 @@ html, body {
 .location-details a:hover {
     color: #431876;
     text-decoration: underline;
+
 }
