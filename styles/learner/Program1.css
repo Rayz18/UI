@@ -191,10 +191,16 @@ body {
 
 .course-header h2 {
     font-size: 1.2rem;
+    position: absolute;
+    top: 80px;
+    left: 250px;
 }
 
 .course-text {
     margin-top: 0.5rem;
+    position: absolute;
+    top: 120px;
+    left: 250px;
 }
 
 .view-course {
