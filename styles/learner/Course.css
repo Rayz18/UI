@@ -1,0 +1,165 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+/* Navigation Bar */
+.user-navigation-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #B19CD9;
+    padding: 10px 20px;
+    color: rgb(67, 24, 116);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    height: 65px; /* Set height for the navbar */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow for separation */
+}
+
+.user-nav-logo {
+    display: flex;
+    align-items: center;
+}
+
+.user-logo {
+    height: 45px;
+    margin-right: 5px;
+}
+
+.user-nav-titles {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.user-nav-title {
+    font-family: inherit;
+    font-weight: bolder;
+    color: rgb(86, 28, 109);
+}
+
+.main-title {
+    font-size: 10px;
+}
+
+.sub-title {
+    font-size: 10px;
+}
+
+/* Navigation Menu */
+.user-nav-menu {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-left: auto;
+}
+
+.user-nav-menu li {
+    display: inline;
+}
+
+.user-nav-menu li a {
+    font-family: inherit;
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.user-nav-menu li a:hover {
+    color: #f0e6f7;
+}
+
+.user-profile-icon {
+    display: block;
+    margin-left: 10px; /* Add space between the nav menu and the user icon */
+    cursor: pointer;
+}
+
+.user-profile-icon img {
+    height: 33px;
+    cursor: pointer;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 60px;
+    background-color: #b19cd9;
+    position: fixed;
+    top: 65px; /* Push down to align under navbar */
+    left: 0;
+    height: calc(100vh - 70px); /* Adjust height to account for navbar */
+    transition: 0.3s;
+    overflow-y: hidden;
+    z-index: 2;
+}
+
+.sidebar.expanded {
+    width: 250px;
+    overflow-y: auto;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 15px;
+}
+
+.menu-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+}
+
+/* Menu Styles */
+.menu {
+    list-style: none;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+    display: block;
+    transition: background 0.3s;
+}
+
+.menu li a.active {
+    background-color: #805ba2;
+    color: white;
+}
+
+/* Content Area */
+.content {
+    margin-left: 60px;
+    margin-top: 70px; /* Push down to align under navbar */
+    padding: 20px;
+    transition: margin-left 0.3s;
+    width: calc(100% - 60px);
+}
+
+.content.shifted {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+} 
