@@ -9,7 +9,6 @@
 <body>
     <!-- Navigation Bar -->
     <nav class="user-navigation-bar">
-        <!-- Logo Section -->
         <div class="user-nav-logo">
             <img src="../images/BSU.png" alt="BSU Logo" class="user-logo">
             <img src="../images/GAD.png" alt="GAD Logo" class="user-logo">
@@ -19,7 +18,6 @@
             </div>
         </div>
 
-        <!-- Navigation Menu -->
         <ul class="user-nav-menu">
             <li><a href="Home.html">Home</a></li>
             <li><a href="AboutUs.html">About Us</a></li>
@@ -29,22 +27,15 @@
             <li><a href="ConnectWithUs.html">Connect With Us</a></li>
         </ul>
 
-        <!-- Profile Icon -->
         <div class="user-profile-icon" onclick="togglePopup()">
             <img src="../images/icon.png" alt="Profile" class="user-profile">
         </div>
 
-        <!-- Profile Popup -->
-        <div id="profile-popup" class="profile-popup" style="display: none;">
-           
-        </div>
+        <div id="profile-popup" class="profile-popup" style="display: none;"></div>
     </nav>
 
-
+    <!-- Sidebar -->
     <div class="sidebar" id="sidebar">
-        <div class="sidebar-header">
-            <button class="menu-btn" onclick="toggleSidebar()">☰</button>
-        </div>
         <ul class="menu" id="menu">
             <li><a href="#" class="menu-item" onclick="activateTab(this, 'introduction')">Introduction</a></li>
             <li><a href="#" class="menu-item" onclick="activateTab(this, 'pre-test')">Pre-Test</a></li>
@@ -54,6 +45,9 @@
             <li><a href="#" class="menu-item" onclick="activateTab(this, 'seminar')">Seminar/Webinar</a></li>
         </ul>
     </div>
+
+    <!-- Floating Arrow Toggle -->
+    <div class="sidebar-toggle" id="sidebar-toggle" onclick="toggleSidebar()">❯</div>
 
     <div class="content" id="content">
         <h1 class="content-title">TITLE</h1>
@@ -93,35 +87,25 @@
 
         function toggleSidebar() {
             const sidebar = document.getElementById('sidebar');
-            const menu = document.getElementById('menu');
             const content = document.getElementById('content');
-            
+            const toggleButton = document.getElementById('sidebar-toggle');
+
             sidebar.classList.toggle('expanded');
             content.classList.toggle('shifted');
 
-            // Show or hide the menu based on sidebar state
-            if (sidebar.classList.contains('expanded')) {
-                menu.style.display = 'block';
-            } else {
-                menu.style.display = 'none';
-            }
+            // Change arrow direction when expanded/collapsed
+            toggleButton.textContent = sidebar.classList.contains('expanded') ? '❮' : '❯';
         }
 
         function activateTab(tab, section) {
-            // Remove 'active' class from all tabs
             const menuItems = document.querySelectorAll('.menu-item');
             menuItems.forEach(item => item.classList.remove('active'));
 
-            // Add 'active' class to the clicked tab
             tab.classList.add('active');
 
-            // Update the content section with the respective content
             const contentSection = document.getElementById('content-section');
             contentSection.innerHTML = contentData[section];
         }
-
-        // Hide menu initially
-        document.getElementById('menu').style.display = 'none';
     </script>
 </body>
 </html>
