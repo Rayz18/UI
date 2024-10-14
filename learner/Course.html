@@ -51,10 +51,30 @@
 
     <div class="content" id="content">
         <h1 class="content-title">TITLE</h1>
-        <div class="content-section" id="content-section">
-            <h2>Introduction</h2>
-            <p>"All important details regarding the course will be posted here, as well as the objectives and reminders."</p>
+        <div class="content-section" id="content-section">  
         </div>
+    </div>
+
+    <!-- Seminar Section -->
+    <div class="content-section" id="seminar-section" style="display: none;">
+        <h2 class="page-title">Seminar/Webinar</h2>
+        <img src="../images/News1.jpg" alt="Seminar Banner" class="seminar-image">
+        <div class="seminar-text">
+            <h1 class="seminar-title">PRIDE: A Celebration of Self</h1>
+            <p class="seminar-description">A seminar promoting inclusiveness and self-expression</p>
+        </div>
+          
+            <div class="seminar-details">
+                <p><strong>Date:</strong> June 28, 2021</p>
+                <p><strong>Time:</strong> 08:00 am - 12:00 noon</p>
+                <p><strong>Venue:</strong> Via Zoom</p>
+            </div>
+
+            <div class="seminar-buttons">
+                <button class="seminar-button" onclick="register()">REGISTER</button>
+                <button class="seminar-button" onclick="attendance()">ATTENDANCE</button>
+                <button class="seminar-button" onclick="evaluation()">EVALUATION</button>
+            </div>       
     </div>
 
     <script>
@@ -80,8 +100,22 @@
                 <p>"Take the post-test to evaluate your understanding after completing the course."</p>
             `,
             seminar: `
-                <h2>Seminar/Webinar</h2>
-                <p>"Join our upcoming seminars and webinars to gain further insights."</p>
+                <h2 class="page-title">Seminar/Webinar</h2>
+                <img src="../images/News1.jpg" alt="Seminar Banner" class="seminar-image">
+                <div class="seminar-text">
+                <h1 class="seminar-title">PRIDE: A Celebration of Self</h1>
+                <p class="seminar-description">A seminar promoting inclusiveness and self-expression</p>
+                </div>
+                <div class="seminar-details">
+                <p><strong>Date:</strong> June 28, 2021</p>
+                <p><strong>Time:</strong> 08:00 am - 12:00 noon</p>
+                <p><strong>Venue:</strong> Via Zoom</p>
+                </div>
+                <div class="seminar-buttons">
+                <button class="seminar-button" onclick="register()">REGISTER</button>
+                <button class="seminar-button" onclick="attendance()">ATTENDANCE</button>
+                <button class="seminar-button" onclick="evaluation()">EVALUATION</button>
+                </div>
             `
         };
 
@@ -93,7 +127,6 @@
             sidebar.classList.toggle('expanded');
             content.classList.toggle('shifted');
 
-            // Change arrow direction when expanded/collapsed
             toggleButton.textContent = sidebar.classList.contains('expanded') ? '❮' : '❯';
         }
 
@@ -105,6 +138,18 @@
 
             const contentSection = document.getElementById('content-section');
             contentSection.innerHTML = contentData[section];
+        }
+
+        function register() {
+            alert("Registration page coming soon!");
+        }
+
+        function attendance() {
+            alert("Attendance tracking will be available soon!");
+        }
+
+        function evaluation() {
+            alert("Evaluation form will be provided soon!");
         }
     </script>
 </body>
