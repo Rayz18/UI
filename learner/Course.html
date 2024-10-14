@@ -140,6 +140,11 @@
             contentSection.innerHTML = contentData[section];
         }
 
+        window.onload = function() {
+            const introductionTab = document.querySelector('.menu-item[onclick*="introduction"]');
+            activateTab(introductionTab, 'introduction');
+        };
+
         function register() {
             alert("Registration page coming soon!");
         }
