@@ -283,7 +283,7 @@ html, body {
     overflow: hidden;
     z-index: 2;
     box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.1); /* Shadow on right side */
-    border-right: 2px solid #9370DB; /* Border to differentiate it */
+    border-right: 1px solid #9370DB; /* Border to differentiate it */
 }
 
 .sidebar.expanded {
