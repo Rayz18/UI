@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Interface</title>
+    <link rel="stylesheet" href="../styles/learner/Course.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="user-navigation-bar">
+        <div class="user-nav-logo">
+            <img src="../images/BSU.png" alt="BSU Logo" class="user-logo">
+            <img src="../images/GAD.png" alt="GAD Logo" class="user-logo">
+            <div class="user-nav-titles">
+                <span class="user-nav-title main-title">BATANGAS STATE UNIVERSITY - THE NATIONAL ENGINEERING UNIVERSITY</span>
+                <span class="user-nav-title sub-title">Gender and Development Unit</span>
+            </div>
+        </div>
+
+        <ul class="user-nav-menu">
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="AboutUs.html">About Us</a></li>
+            <li><a href="Program.html">Program</a></li>
+            <li><a href="AdvocacyCampaign.html">Advocacy Campaign</a></li>
+            <li><a href="Certificate.html">Certificate</a></li>
+            <li><a href="ConnectWithUs.html">Connect With Us</a></li>
+        </ul>
+
+        <div class="user-profile-icon" onclick="togglePopup()">
+            <img src="../images/icon.png" alt="Profile" class="user-profile">
+        </div>
+
+        <div id="profile-popup" class="profile-popup" style="display: none;"></div>
+    </nav>
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <ul class="menu" id="menu">
+            <li><a href="#" class="menu-item" onclick="activateTab(this, 'introduction')">Introduction</a></li>
+            <li><a href="#" class="menu-item" onclick="activateTab(this, 'pre-test')">Pre-Test</a></li>
+            <li><a href="#" class="menu-item" onclick="activateTab(this, 'learning-materials')">Learning Materials</a></li>
+            <li><a href="#" class="menu-item" onclick="activateTab(this, 'videos')">Videos</a></li>
+            <li><a href="#" class="menu-item" onclick="activateTab(this, 'post-test')">Post-Test</a></li>
+            <li><a href="#" class="menu-item" onclick="activateTab(this, 'seminar')">Seminar/Webinar</a></li>
+        </ul>
+    </div>
+
+    <!-- Floating Arrow Toggle -->
+    <div class="sidebar-toggle" id="sidebar-toggle" onclick="toggleSidebar()">❯</div>
+
+    <div class="content" id="content">
+        <h1 class="content-title">TITLE</h1>
+        <div class="content-section" id="content-section">
+            <h2>Introduction</h2>
+            <p>"All important details regarding the course will be posted here, as well as the objectives and reminders."</p>
+        </div>
+    </div>
+
+    <script>
+        const contentData = {
+            introduction: `
+                <h2>Introduction</h2>
+                <p>"All important details regarding the course will be posted here, as well as the objectives and reminders."</p>
+            `,
+            'pre-test': `
+                <h2>Pre-Test</h2>
+                <p>"Please take this pre-test to assess your prior knowledge before starting the course."</p>
+            `,
+            'learning-materials': `
+                <h2>Learning Materials</h2>
+                <p>"Access all course learning materials here, including articles, PDFs, and slides."</p>
+            `,
+            videos: `
+                <h2>Videos</h2>
+                <p>"Watch instructional videos relevant to the course topics."</p>
+            `,
+            'post-test': `
+                <h2>Post-Test</h2>
+                <p>"Take the post-test to evaluate your understanding after completing the course."</p>
+            `,
+            seminar: `
+                <h2>Seminar/Webinar</h2>
+                <p>"Join our upcoming seminars and webinars to gain further insights."</p>
+            `
+        };
+
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const content = document.getElementById('content');
+            const toggleButton = document.getElementById('sidebar-toggle');
+
+            sidebar.classList.toggle('expanded');
+            content.classList.toggle('shifted');
+
+            // Change arrow direction when expanded/collapsed
+            toggleButton.textContent = sidebar.classList.contains('expanded') ? '❮' : '❯';
+        }
+
+        function activateTab(tab, section) {
+            const menuItems = document.querySelectorAll('.menu-item');
+            menuItems.forEach(item => item.classList.remove('active'));
+
+            tab.classList.add('active');
+
+            const contentSection = document.getElementById('content-section');
+            contentSection.innerHTML = contentData[section];
+        }
+    </script>
+</body>
+</html>

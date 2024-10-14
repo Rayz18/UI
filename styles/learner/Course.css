@@ -1,0 +1,359 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    overflow-y: auto;   /* Ensure vertical scrolling only */
+    box-sizing: border-box; /* Ensure padding/margins are handled properly */
+}
+
+/* Apply box-sizing to all elements to prevent overflow */
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+/* User Navigation Bar */
+.user-navigation-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(90deg, #B19CD9, #9370DB); /* Gradient effect */
+    padding: 10px 20px; 
+    color: rgb(67, 24, 116);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    overflow: hidden;
+}
+
+.user-nav-logo {
+    display: flex;
+    align-items: center;
+}
+
+.user-logo {
+    height: 45px;
+    margin-right: 5px;
+}
+
+.user-nav-titles {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.user-nav-title {
+    font-family: inherit;
+    font-weight: bolder;
+    color: rgb(86, 28, 109);
+}
+
+.main-title {
+    font-size: 10px;
+}
+
+.sub-title {
+    font-size: 10px;
+}
+
+.user-nav-menu {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-left: auto;
+}
+
+.user-nav-menu li a {
+    font-family: inherit;
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.user-nav-menu li a:hover {
+    color: #f0e6f7; /* Light color on hover */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Subtle text shadow */
+}
+
+.user-profile-icon {
+    display: block;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.user-profile-icon img {
+    height: 33px;
+    cursor: pointer;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 0;
+    background-color: #b19cd9;
+    position: fixed;
+    top: 65px;
+    left: 0;
+    height: calc(100vh - 65px);
+    transition: width 0.3s ease;
+    overflow: hidden;
+    z-index: 2;
+    box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.1); /* Shadow on right side */
+    border-right: 2px solid #9370DB; /* Border to differentiate it */
+}
+
+.sidebar.expanded {
+    width: 250px;
+}
+
+/* Sidebar Toggle */
+.sidebar-toggle {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    background-color: #b19cd9; 
+    border-radius: 0 50% 50% 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: left 0.3s;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Shadow for the toggle button */
+}
+
+.sidebar.expanded + #sidebar-toggle {
+    left: 250px;
+}
+
+/* Menu Styles */
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-item {
+    padding: 15px 20px;
+    font-size: 16px;
+    color: black;
+    text-decoration: none;
+    display: block;
+    background-color: transparent;
+    transition: background-color 0.3s, padding-left 0.3s;
+}
+
+.menu-item:hover {
+    background-color: #a283c4;
+    padding-left: 25px; /* Indentation effect on hover */
+}
+
+.menu-item.active {
+    background-color: #9370DB;
+    color: white;
+    font-weight: bold;
+    padding-left: 30px; /* Further indentation for active state */
+}
+
+/* Content Area */
+.content {
+    margin-left: 0;
+    margin-top: 70px;
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    overflow-y: auto;   /* Ensure vertical scrolling only */
+    box-sizing: border-box; /* Ensure padding/margins are handled properly */
+}
+
+/* Apply box-sizing to all elements to prevent overflow */
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+/* User Navigation Bar */
+.user-navigation-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(90deg, #B19CD9, #9370DB); /* Gradient effect */
+    padding: 10px 20px; 
+    color: rgb(67, 24, 116);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    overflow: hidden;
+}
+
+.user-nav-logo {
+    display: flex;
+    align-items: center;
+}
+
+.user-logo {
+    height: 45px;
+    margin-right: 5px;
+}
+
+.user-nav-titles {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.user-nav-title {
+    font-family: inherit;
+    font-weight: bolder;
+    color: rgb(86, 28, 109);
+}
+
+.main-title {
+    font-size: 10px;
+}
+
+.sub-title {
+    font-size: 10px;
+}
+
+.user-nav-menu {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-left: auto;
+}
+
+.user-nav-menu li a {
+    font-family: inherit;
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.user-nav-menu li a:hover {
+    color: #f0e6f7; /* Light color on hover */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Subtle text shadow */
+}
+
+.user-profile-icon {
+    display: block;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.user-profile-icon img {
+    height: 33px;
+    cursor: pointer;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 0;
+    background-color: #b19cd9;
+    position: fixed;
+    top: 65px;
+    left: 0;
+    height: calc(100vh - 65px);
+    transition: width 0.3s ease;
+    overflow: hidden;
+    z-index: 2;
+    box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.1); /* Shadow on right side */
+    border-right: 2px solid #9370DB; /* Border to differentiate it */
+}
+
+.sidebar.expanded {
+    width: 250px;
+}
+
+/* Sidebar Toggle */
+.sidebar-toggle {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    background-color: #b19cd9; 
+    border-radius: 0 50% 50% 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: left 0.3s;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Shadow for the toggle button */
+}
+
+.sidebar.expanded + #sidebar-toggle {
+    left: 250px;
+}
+
+/* Menu Styles */
+.menu {
+    list-style: none;
+    padding: 44px 0 0 0;
+}
+
+.menu-item {
+    padding: 15px 20px;
+    font-size: 16px;
+    color: black;
+    text-decoration: none;
+    display: block;
+    background-color: transparent;
+    transition: background-color 0.3s, padding-left 0.3s;
+}
+
+.menu-item:hover {
+    background-color: #a283c4;
+    padding-left: 25px; /* Indentation effect on hover */
+}
+
+.menu-item.active {
+    background-color: #9370DB;
+    color: white;
+    font-weight: bold;
+    padding-left: 30px; /* Further indentation for active state */
+}
+
+h1 {
+    color: rgb(86, 28, 109);
+    font-size: 28px;
+    margin-bottom: 60px; /* Adjusted margin for title */
+}
+
+/* Content Area */
+.content {
+    margin-left: 0;
+    margin-top: 70px;
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+}
+
+
+.content.shifted {
+    margin-left: 250px;
+}
