@@ -11,18 +11,17 @@
 <body>
     <!-- Navigation Bar -->
     <nav class="user-navigation-bar">
-        <!-- Logo Section -->
         <div class="user-nav-logo">
             <img src="../images/BSU.png" alt="BSU Logo" class="user-logo">
             <img src="../images/GAD.png" alt="GAD Logo" class="user-logo">
             <div class="user-nav-titles">
-                <span class="user-nav-title main-title">BATANGAS STATE UNIVERSITY - THE NATIONAL ENGINEERING
-                    UNIVERSITY</span>
+                <span class="user-nav-title main-title">
+                    BATANGAS STATE UNIVERSITY - THE NATIONAL ENGINEERING UNIVERSITY
+                </span>
                 <span class="user-nav-title sub-title">Gender and Development Unit</span>
             </div>
         </div>
 
-        <!-- Navigation Menu -->
         <ul class="user-nav-menu">
             <li><a href="Home.html">Home</a></li>
             <li><a href="AboutUs.html">About Us</a></li>
@@ -32,14 +31,12 @@
             <li><a href="ConnectWithUs.html">Connect With Us</a></li>
         </ul>
 
-        <!-- Profile Icon -->
         <div class="user-profile-icon" onclick="togglePopup()">
             <img src="../images/icon.png" alt="Profile" class="user-profile">
         </div>
 
-        <!-- Profile Popup -->
         <div id="profile-popup" class="profile-popup" style="display: none;">
-           
+            <p>User Profile (Placeholder)</p>
         </div>
     </nav>
 
@@ -53,24 +50,55 @@
                     <button onclick="search()">🔍</button>
                 </div>
             </div>
+
+            <!-- Image Gallery Section -->
+            <div class="image-gallery">
+                <div class="image-card">
+                    <a href="AdvocacyCampaignRedirection.html">
+                        <img src="../images/20.png" alt="Webinar on Laws on Gender-Based Violence">
+                    </a>
+                    <a href="AdvocacyCampaignRedirection.html" class="image-title">
+                        Webinar on Laws on Gender-Based Violence
+                    </a>
+                </div>
+
+                <div class="image-card">
+                    <a href="AdvocacyCampaignRedirection.html">
+                        <img src="../images/21.png" alt="Pride Month 2022">
+                    </a>
+                    <a href="AdvocacyCampaignRedirection.html" class="image-title">PRIDE: A Celebration of Self</a>
+                </div>
+
+                <div class="image-card">
+                    <a href="AdvocacyCampaignRedirection.html">
+                        <img src="../images/22.png" alt="Filipina Lakas">
+                    </a>
+                    <a href="AdvocacyCampaignRedirection.html" class="image-title">
+                        Filipina Lakas: Zero Tolerance on Violence Against Women
+                    </a>
+                </div>
+
+                <div class="image-card">
+                    <a href="AdvocacyCampaignRedirection.html">
+                        <img src="../images/23.png" alt="National Disaster Resilience Month 2022">
+                    </a>
+                    <a href="AdvocacyCampaignRedirection.html" class="image-title">
+                        National Disaster Resilience Month 2022
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- JavaScript for interactivity -->
     <script>
         function search() {
             const searchTerm = document.getElementById('searchTerm').value;
             alert('Search functionality not yet implemented. Searching for: ' + searchTerm);
         }
 
-        // Profile popup toggle
         function togglePopup() {
             const popup = document.getElementById('profile-popup');
             popup.style.display = (popup.style.display === "none" || popup.style.display === "") ? "block" : "none";
-        }
-
-        function closePopup() {
-            document.getElementById('profile-popup').style.display = "none";
         }
     </script>
 </body>

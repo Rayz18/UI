@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advocacy Campaign - Details</title>
+    <link rel="stylesheet" href="../styles/learner/AdvocacyCampaignRedirection.css">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="user-navigation-bar">
+        <div class="user-nav-logo">
+            <img src="../images/BSU.png" alt="BSU Logo" class="user-logo">
+            <img src="../images/GAD.png" alt="GAD Logo" class="user-logo">
+            <div class="user-nav-titles">
+                <span class="user-nav-title main-title">
+                    BATANGAS STATE UNIVERSITY - THE NATIONAL ENGINEERING UNIVERSITY
+                </span>
+                <span class="user-nav-title sub-title">Gender and Development Unit</span>
+            </div>
+        </div>
+
+        <ul class="user-nav-menu">
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="AboutUs.html">About Us</a></li>
+            <li><a href="Program.html">Program</a></li>
+            <li><a href="AdvocacyCampaign.html">Advocacy Campaign</a></li>
+            <li><a href="Certificate.html">Certificate</a></li>
+            <li><a href="ConnectWithUs.html">Connect With Us</a></li>
+        </ul>
+
+        <div class="user-profile-icon" onclick="togglePopup()">
+            <img src="../images/icon.png" alt="Profile" class="user-profile">
+        </div>
+
+        <div id="profile-popup" class="profile-popup" style="display: none;">
+            <p>User Profile (Placeholder)</p>
+        </div>
+    </nav>
+
+    <!-- Spacing between Nav Bar and Banner -->
+    <div class="nav-spacing"></div>
+
+    <!-- Banner Section -->
+    <div class="banner">
+        <img src="../images/20.png" alt="Campaign Banner">
+    </div>
+
+    <!-- Campaign Details Section -->
+    <div class="campaign-details">
+        <h1>WOMEN’S MONTH CELEBRATION</h1>
+
+        <div class="activities">
+            <h2>ACTIVITIES</h2>
+            <ul>
+                <li>1. Seminar</li>
+                <li>2. Poster Making</li>
+                <li>3. Photo Contest</li>
+            </ul>
+        </div>
+
+        <div class="button-grid">
+            <a href="#" class="button">
+                <img src="../images/images.png" alt="Images">
+                <span>IMAGES</span>
+            </a>
+            <a href="#" class="button">
+                <img src="../images/infographics.png" alt="Infographics">
+                <span>INFOGRAPHICS</span>
+            </a>
+            <a href="#" class="button">
+                <img src="../images/videos.png" alt="Videos">
+                <span>VIDEOS</span>
+            </a>
+            <a href="#" class="button">
+                <img src="../images/materials.png" alt="Materials">
+                <span>MATERIALS</span>
+            </a>
+        </div>
+
+        <div class="content-description">
+            <p>
+                Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.
+                Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum.
+                Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function togglePopup() {
+            const popup = document.getElementById('profile-popup');
+            popup.style.display = (popup.style.display === "none" || popup.style.display === "") ? "block" : "none";
+        }
+    </script>
+</body>
+
+</html>
