@@ -1,4 +1,3 @@
-/* Reset Styles */
 html, body {
     width: 100%;
     height: 100%;
@@ -12,6 +11,9 @@ html, body {
 
 *, *::before, *::after {
     box-sizing: inherit;
+}
+.nav-spacing {
+    height: 60px;
 }
 
 /* User Navigation Bar */
@@ -94,93 +96,89 @@ html, body {
     height: 33px;
     cursor: pointer;
 }
-/* Advocacy Campaign Section */
-.advocacy-campaign-container {
+
+/* Banner Section */
+.banner {
+    width: 100%; /* Ensure it spans the entire width */
+    overflow: hidden;
+    position: relative;
+    margin: 0; /* No margin */
+    padding: 0; /* No padding */
+    display: block; /* Ensure it's treated as a block element */
+}
+
+.banner img {
+    width: 100%; /* Full width */
+    height: auto; /* Maintain the aspect ratio */
+    display: block; /* Prevent inline spacing */
+    object-fit: cover; /* Make sure it fills the banner area */
+    max-height: 400px; /* Optional height limit */
+}
+
+/* Campaign Details Section */
+.campaign-details {
     max-width: 1200px;
-    margin: 0 auto;
-    padding-top: 70px;
+    margin: 30px auto; /* Reduced top margin */
+    padding: 20px;
     text-align: center;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.title-search {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin: 30px 0;
+.activities {
+    text-align: left;
+    margin-top: 20px;
 }
 
-h1 {
-    color: rgb(86, 28, 109);
-    font-size: 26px;
-    margin-bottom: 12px;
+.activities h2 {
+    color: #5a2c88;
 }
 
-/* Search Bar */
-.search-bar {
-    display: flex;
-    align-items: center;
-    margin-left: 1000px;
+.activities ul {
+    list-style: none;
+    padding-left: 0;
 }
 
-.search-bar input {
-    padding: 8px;
-    font-size: 14px;
-    border: 1px solid rgba(213, 213, 216, 0.849);
-    border-radius: 5px;
-    width: 200px;
+.activities li {
+    margin: 5px 0;
 }
 
-.search-bar button {
-    background-color: rgba(213, 213, 216, 0.849);
-    color: white;
-    border: none;
-    padding: 8px;
-    margin-left: 5px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.search-bar button:hover {
-    background-color: #B19CD9;
-}
-
-/* Image Gallery */
-.image-gallery {
+/* Button Grid */
+.button-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
-    justify-items: center;
-    padding: 20px;
+    margin-top: 20px;
 }
 
-.image-card {
+.button {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
-}
-
-.image-card img {
-    width: 100%;
-    max-width: 450px;
+    justify-content: center;
+    padding: 20px;
+    background-color: #B19CD9;
+    color: white;
+    text-decoration: none;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
 }
 
-.image-card img:hover {
+.button:hover {
     transform: scale(1.05);
-    cursor: pointer;
 }
 
-.image-title {
-    margin-top: 10px;
-    font-size: 15px;
-    color: #3182ce;
-    text-decoration: none;
+.button img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
 }
 
-.image-title:hover {
-    text-decoration: underline;
+/* Content Description */
+.content-description {
+    margin-top: 20px;
+    text-align: left;
+    line-height: 1.6;
 }
