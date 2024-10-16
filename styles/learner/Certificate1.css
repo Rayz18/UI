@@ -102,49 +102,77 @@ html, body {
 /* Programs section */
 .container {
     margin: 0 auto;
-    padding-top: 100px; 
+    padding-top: 70px;
     text-align: center;
 }
 
-h1 {
-    color: rgb(86, 28, 109);
-    font-size: 26px;
-    margin-bottom: 30px; /* Adjusted margin for title */
-}
-
-.filters {
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-    margin-bottom: 20px;
-    margin-right: 60px;
-}
-
-.certificate-list {
-    list-style-type: none;
-    text-align: left;
-    margin-left: 50px;
-}
-
-.certificate-list li {
-    margin: 60px;
-}
-
-.certificate-list a {
-    font-size: 18px;
-    color: blue;
-    text-decoration: none;
-}
-
-.certificate-list a:hover {
-    text-decoration: underline;
-}
-
-.certificate-list p {
+/* Breadcrumb navigation */
+.breadcrumbs {
+    text-align: left; /* Align breadcrumbs to the left */
+    padding: 10px 5%;
     font-size: 14px;
-    color: #666;
+    color: #444;
 }
 
+/* Decorative certificate placeholder for creative design */
+.certificate-placeholder {
+    width: 90%;
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+    background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+    border: 2px solid #dcdcdc;
+}
+
+/* Left-aligned certificate details */
+.certificate-details {
+    text-align: left;
+    padding-left: 11%;
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.certificate-details p {
+    margin: 5px 0;
+    color: #000000;
+}
+
+/* Additional styles for certificate detail page */
+.certificate-preview {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.certificate-preview img {
+    max-width: 80%;
+    height: auto;
+    border: 2px solid #4949492d;
+    padding: 10px;
+}
+
+/* Download button section */
+.download-section {
+    margin-top: 20px;
+    text-align: right;
+    margin-right: 80px;
+}
+
+.download-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #6a1b9a;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.download-btn:hover {
+    background-color: #8247e5;
+}
 
 /* Customize scrollbar */
 ::-webkit-scrollbar {
