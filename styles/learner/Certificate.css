@@ -112,13 +112,36 @@ h1 {
     margin-bottom: 30px; /* Adjusted margin for title */
 }
 
+/* Filter section */
 .filters {
     display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-    margin-bottom: 20px;
-    margin-right: 60px;
+    align-items: center;  /* Vertically center label and dropdown */
+    justify-content: flex-end;  /* Keep them aligned to the left, but centered vertically */
+    gap: 10px; /* Add spacing between label and dropdown */
+    width: 100%;  /* Make it span the full width */
+    margin-bottom: 20px;  /* Space from the content below */
+    padding: 0 60px;  /* Add side padding for spacing from page edges */
 }
+
+/* Style the filter label */
+.filters label {
+    font-size: 14px;
+    color: #333; /* Darker text for better visibility */
+    margin: 0;   /* Remove default margin */
+}
+
+/* Style the dropdown */
+#offering {
+    padding: 6px 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #333;
+    width: 180px; /* Slightly wider dropdown */
+}
+
+
 
 .certificate-list {
     list-style-type: none;
