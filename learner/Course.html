@@ -55,28 +55,6 @@
         </div>
     </div>
 
-    <!-- Seminar Section -->
-    <div class="content-section" id="seminar-section" style="display: none;">
-        <h2 class="page-title">Seminar/Webinar</h2>
-        <img src="../images/News1.jpg" alt="Seminar Banner" class="seminar-image">
-        <div class="seminar-text">
-            <h1 class="seminar-title">PRIDE: A Celebration of Self</h1>
-            <p class="seminar-description">A seminar promoting inclusiveness and self-expression</p>
-        </div>
-          
-            <div class="seminar-details">
-                <p><strong>Date:</strong> June 28, 2021</p>
-                <p><strong>Time:</strong> 08:00 am - 12:00 noon</p>
-                <p><strong>Venue:</strong> Via Zoom</p>
-            </div>
-
-            <div class="seminar-buttons">
-                <button class="seminar-button" onclick="register()">REGISTER</button>
-                <button class="seminar-button" onclick="attendance()">ATTENDANCE</button>
-                <button class="seminar-button" onclick="evaluation()">EVALUATION</button>
-            </div>       
-    </div>
-
     <script>
         const contentData = {
             introduction: `
@@ -85,7 +63,31 @@
             `,
             'pre-test': `
                 <h2>Pre-Test</h2>
-                <p>"Please take this pre-test to assess your prior knowledge before starting the course."</p>
+                <!-- Pre-Test Quiz Content -->
+                <div class="quiz-container">
+                    <p>"DIRECTION......................."</p>
+                    <form class="quiz-form">
+                        <!-- Question 1 -->
+                        <div class="question">
+                            <p><strong>1. What is?</strong></p>
+                            <input type="radio" id="q1a" name="q1" value="a"><label for="q1a">a.) dhgfhdh</label><br>
+                            <input type="radio" id="q1b" name="q1" value="b"><label for="q1b">b.) fgdgfdgs</label><br>
+                            <input type="radio" id="q1c" name="q1" value="c"><label for="q1c">c.) fgrer</label><br>
+                        </div>
+
+                        <!-- Question 2 -->
+                        <div class="question">
+                            <p><strong>2. How to?</strong></p>
+                            <input type="radio" id="q2a" name="q2" value="a"><label for="q2a">a.) dfgfgdf</label><br>
+                            <input type="radio" id="q2b" name="q2" value="b"><label for="q2b">b.) rgergr</label><br>
+                            <input type="radio" id="q2c" name="q2" value="c"><label for="q2c">c.) djfdjfvb</label><br>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="submit-btn">SUBMIT</button>
+                    </form>
+                </div>
+            </div>
             `,
             'learning-materials': `
                 <h2>Learning Materials</h2>
@@ -97,7 +99,31 @@
             `,
             'post-test': `
                 <h2>Post-Test</h2>
-                <p>"Take the post-test to evaluate your understanding after completing the course."</p>
+                <!-- Post-Test Quiz Content -->
+                <div class="quiz-container">
+                    <p>"DIRECTION......................"</p>
+                    <form class="quiz-form">
+                        <!-- Question 1 -->
+                        <div class="question">
+                            <p><strong>1. What is?</strong></p>
+                            <input type="radio" id="q1a" name="q1" value="a"><label for="q1a">a.) dhgfhdh</label><br>
+                            <input type="radio" id="q1b" name="q1" value="b"><label for="q1b">b.) fgdgfdgs</label><br>
+                            <input type="radio" id="q1c" name="q1" value="c"><label for="q1c">c.) fgrer</label><br>
+                        </div>
+
+                        <!-- Question 2 -->
+                        <div class="question">
+                            <p><strong>2. How to?</strong></p>
+                            <input type="radio" id="q2a" name="q2" value="a"><label for="q2a">a.) dfgfgdf</label><br>
+                            <input type="radio" id="q2b" name="q2" value="b"><label for="q2b">b.) rgergr</label><br>
+                            <input type="radio" id="q2c" name="q2" value="c"><label for="q2c">c.) djfdjfvb</label><br>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="submit-btn">SUBMIT</button>
+                    </form>
+                </div>
+            </div>
             `,
             seminar: `
                 <h2 class="page-title">Seminar/Webinar</h2>
