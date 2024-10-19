@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="../styles/learner/sign-up.css">
+</head>
+<body>
+    <div class="container">
+        <div class="flex-container">
+            <!-- Left Side with Logos and Text -->
+            <div class="logo-text">
+                <div class="logo-container">
+                    <img src="../images/BSU.png" alt="University Logo" class="logo">
+                    <img src="../images/GAD.png" alt="Department Logo" class="logo">
+                </div>
+                <h1 class="heading">Empowering Equality, Advancing Development</h1>
+            </div>
+            
+            <!-- Right Side with Sign-up Form -->
+            <div class="signup-box">
+                <h2 class="signup-title">Create Account</h2>
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" class="form-input email-input" placeholder="Email Address" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" id="first-name" name="first_name" class="form-input" placeholder="First Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="last-name" name="last_name" class="form-input" placeholder="Last Name" required>
+                        </div>
+                    </div>
+                    <div class="form-group password-group">
+                        <input type="password" id="password" name="password" class="form-input" placeholder="Create Password" required>
+                        <i class="fas fa-eye password-toggle"></i>
+                        <i class="fas fa-info-circle password-hint-icon"></i> <!-- Password hint icon -->
+                        <p class="password-hint">Use 8 or more characters with a mix of letters, numbers, & symbols</p> <!-- Password hint -->
+                    </div>
+                    <div class="form-group password-group">
+                        <input type="password" id="confirm-password" name="confirm_password" class="form-input" placeholder="Confirm Password" required>
+                        <i class="fas fa-eye password-toggle"></i>
+                    </div>
+                    <button type="submit" class="submit-btn">Sign up</button>
+                </form>
+                <p class="login-footer-text">
+                    Already have an account? <a href="login.html" class="login-link">Login</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
