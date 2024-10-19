@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Course Interface</title>
     <link rel="stylesheet" href="../styles/learner/Course.css">
 </head>
+
 <body>
     <!-- Navigation Bar -->
     <nav class="user-navigation-bar">
@@ -13,7 +15,8 @@
             <img src="../images/BSU.png" alt="BSU Logo" class="user-logo">
             <img src="../images/GAD.png" alt="GAD Logo" class="user-logo">
             <div class="user-nav-titles">
-                <span class="user-nav-title main-title">BATANGAS STATE UNIVERSITY - THE NATIONAL ENGINEERING UNIVERSITY</span>
+                <span class="user-nav-title main-title">BATANGAS STATE UNIVERSITY - THE NATIONAL ENGINEERING
+                    UNIVERSITY</span>
                 <span class="user-nav-title sub-title">Gender and Development Unit</span>
             </div>
         </div>
@@ -38,7 +41,7 @@
     <div class="sidebar" id="sidebar">
         <ul class="menu" id="menu">
             <li><a href="#" class="menu-item" onclick="activateTab(this, 'introduction')">Introduction</a></li>
-            <li><a href="#" class="menu-item" onclick="activateTab(this, 'pre-test')">Pre-Test</a></li>
+            <li><a href="Pre-test.html" class="menu-item">Pre-Test</a></li> <!-- Updated to link to Pre-test.html -->
             <li><a href="#" class="menu-item" onclick="activateTab(this, 'learning-materials')">Learning Materials</a></li>
             <li><a href="#" class="menu-item" onclick="activateTab(this, 'videos')">Videos</a></li>
             <li><a href="#" class="menu-item" onclick="activateTab(this, 'post-test')">Post-Test</a></li>
@@ -51,7 +54,7 @@
 
     <div class="content" id="content">
         <h1 class="content-title">TITLE</h1>
-        <div class="content-section" id="content-section">  
+        <div class="content-section" id="content-section">
         </div>
     </div>
 
@@ -63,18 +66,18 @@
             <h1 class="seminar-title">PRIDE: A Celebration of Self</h1>
             <p class="seminar-description">A seminar promoting inclusiveness and self-expression</p>
         </div>
-          
-            <div class="seminar-details">
-                <p><strong>Date:</strong> June 28, 2021</p>
-                <p><strong>Time:</strong> 08:00 am - 12:00 noon</p>
-                <p><strong>Venue:</strong> Via Zoom</p>
-            </div>
 
-            <div class="seminar-buttons">
-                <button class="seminar-button" onclick="register()">REGISTER</button>
-                <button class="seminar-button" onclick="attendance()">ATTENDANCE</button>
-                <button class="seminar-button" onclick="evaluation()">EVALUATION</button>
-            </div>       
+        <div class="seminar-details">
+            <p><strong>Date:</strong> June 28, 2021</p>
+            <p><strong>Time:</strong> 08:00 am - 12:00 noon</p>
+            <p><strong>Venue:</strong> Via Zoom</p>
+        </div>
+
+        <div class="seminar-buttons">
+            <button class="seminar-button" onclick="register()">REGISTER</button>
+            <button class="seminar-button" onclick="attendance()">ATTENDANCE</button>
+            <button class="seminar-button" onclick="evaluation()">EVALUATION</button>
+        </div>
     </div>
 
     <script>
@@ -82,10 +85,6 @@
             introduction: `
                 <h2>Introduction</h2>
                 <p>"All important details regarding the course will be posted here, as well as the objectives and reminders."</p>
-            `,
-            'pre-test': `
-                <h2>Pre-Test</h2>
-                <p>"Please take this pre-test to assess your prior knowledge before starting the course."</p>
             `,
             'learning-materials': `
                 <h2>Learning Materials</h2>
@@ -140,7 +139,7 @@
             contentSection.innerHTML = contentData[section];
         }
 
-        window.onload = function() {
+        window.onload = function () {
             const introductionTab = document.querySelector('.menu-item[onclick*="introduction"]');
             activateTab(introductionTab, 'introduction');
         };
@@ -158,4 +157,5 @@
         }
     </script>
 </body>
+
 </html>

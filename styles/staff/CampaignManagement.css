@@ -1,0 +1,89 @@
+/* Ensure the body and html have no overflow issues */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Hide any unwanted scrollbars */
+}
+
+/* Fix any potential issues with the navigation bar */
+.user-navigation-bar {
+    overflow: hidden; /* Prevent the navbar from contributing to overflow */
+}
+
+/* Add Campaign Button Styling */
+.add-campaign-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;  /* Change from 'left' to 'right' */
+    background-color: #8a56ac;  /* Purple tone */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.add-campaign-btn:hover {
+    background-color: #672280;  /* Darker purple on hover */
+    transform: scale(1.05);     /* Subtle zoom effect */
+}
+
+.add-campaign-btn:active {
+    transform: scale(0.95);     /* Pressed button effect */
+}
+
+/* Add Campaign Popup Styling */
+.campaign-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.popup-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.popup-title {
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+label {
+    margin-top: 10px;
+}
+
+input[type="text"], input[type="file"] {
+    margin-top: 5px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.submit-btn, .close-btn {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #8a56ac;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover, .close-btn:hover {
+    background-color: #672280; /* Darker purple on hover */
+}

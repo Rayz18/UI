@@ -1,0 +1,24 @@
+/* Pre-Test Page Styling */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.pre-test-content {
+    text-align: center;
+    padding: 50px;
+}
+
+.pre-test-content h1 {
+    color: rgb(67, 24, 116);
+    font-size: 36px;
+}
+
+.pre-test-content p {
+    font-size: 18px;
+    color: rgb(0, 0, 0);
+    margin-top: 20px;
+}
