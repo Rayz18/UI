@@ -108,6 +108,11 @@
         function closePopup() {
             document.getElementById('profile-popup').style.display = "none";
         }
+
+        // Redirect to the login page on Sign In button click
+        document.querySelector('.signin-btn').addEventListener('click', function() {
+            window.location.href = 'login.html';  // Redirect to the login page
+        });
     </script>
 </body>
 
