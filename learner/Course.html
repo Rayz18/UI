@@ -51,8 +51,7 @@
 
     <div class="content" id="content">
         <h1 class="content-title">TITLE</h1>
-        <div class="content-section" id="content-section">  
-        </div>
+        <div class="content-section" id="content-section"></div>
     </div>
 
     <!-- Seminar Section -->
@@ -63,18 +62,18 @@
             <h1 class="seminar-title">PRIDE: A Celebration of Self</h1>
             <p class="seminar-description">A seminar promoting inclusiveness and self-expression</p>
         </div>
-          
-            <div class="seminar-details">
-                <p><strong>Date:</strong> June 28, 2021</p>
-                <p><strong>Time:</strong> 08:00 am - 12:00 noon</p>
-                <p><strong>Venue:</strong> Via Zoom</p>
-            </div>
 
-            <div class="seminar-buttons">
-                <button class="seminar-button" onclick="register()">REGISTER</button>
-                <button class="seminar-button" onclick="attendance()">ATTENDANCE</button>
-                <button class="seminar-button" onclick="evaluation()">EVALUATION</button>
-            </div>       
+        <div class="seminar-details">
+            <p><strong>Date:</strong> June 28, 2021</p>
+            <p><strong>Time:</strong> 08:00 am - 12:00 noon</p>
+            <p><strong>Venue:</strong> Via Zoom</p>
+        </div>
+
+        <div class="seminar-buttons">
+            <button class="seminar-button" onclick="register()">REGISTER</button>
+            <button class="seminar-button" onclick="attendance()">ATTENDANCE</button>
+            <button class="seminar-button" onclick="evaluation()">EVALUATION</button>
+        </div>
     </div>
 
     <script>
@@ -86,6 +85,51 @@
             'pre-test': `
                 <h2>Pre-Test</h2>
                 <p>"Please take this pre-test to assess your prior knowledge before starting the course."</p>
+                <form>
+                    <ol>
+                        <li>
+                            What is?
+                            <ul>
+                                <li><label><input type="radio" name="q1" value="a"> a.) dhgfdh</label></li>
+                                <li><label><input type="radio" name="q1" value="b"> b.) fghdfgds</label></li>
+                                <li><label><input type="radio" name="q1" value="c"> c.) frger</label></li>
+                            </ul>
+                        </li>
+                        <li>
+                            How to?
+                            <ul>
+                                <li><label><input type="radio" name="q2" value="a"> a.) dfgfgdf</label></li>
+                                <li><label><input type="radio" name="q2" value="b"> b.) rgergr</label></li>
+                                <li><label><input type="radio" name="q2" value="c"> c.) djfdjfvb</label></li>
+                            </ul>
+                        </li>
+                        <li>
+                            Why is?
+                            <ul>
+                                <li><label><input type="radio" name="q3" value="a"> a.) dhdgdh</label></li>
+                                <li><label><input type="radio" name="q3" value="b"> b.) gfgdfgd</label></li>
+                                <li><label><input type="radio" name="q3" value="c"> c.) jgkgkj</label></li>
+                            </ul>
+                        </li>
+                        <li>
+                            Where is?
+                            <ul>
+                                <li><label><input type="radio" name="q4" value="a"> a.) dfkjhdf</label></li>
+                                <li><label><input type="radio" name="q4" value="b"> b.) fjhgjh</label></li>
+                                <li><label><input type="radio" name="q4" value="c"> c.) fjgfjg</label></li>
+                            </ul>
+                        </li>
+                        <li>
+                            When is?
+                            <ul>
+                                <li><label><input type="radio" name="q5" value="a"> a.) hjfgh</label></li>
+                                <li><label><input type="radio" name="q5" value="b"> b.) fjfhgf</label></li>
+                                <li><label><input type="radio" name="q5" value="c"> c.) ytryrt</label></li>
+                            </ul>
+                        </li>
+                    </ol>
+                    <button type="submit" class="submit-button">SUBMIT</button>
+                </form>
             `,
             'learning-materials': `
                 <h2>Learning Materials</h2>
@@ -103,18 +147,18 @@
                 <h2 class="page-title">Seminar/Webinar</h2>
                 <img src="../images/News1.jpg" alt="Seminar Banner" class="seminar-image">
                 <div class="seminar-text">
-                <h1 class="seminar-title">PRIDE: A Celebration of Self</h1>
-                <p class="seminar-description">A seminar promoting inclusiveness and self-expression</p>
+                    <h1 class="seminar-title">PRIDE: A Celebration of Self</h1>
+                    <p class="seminar-description">A seminar promoting inclusiveness and self-expression</p>
                 </div>
                 <div class="seminar-details">
-                <p><strong>Date:</strong> June 28, 2021</p>
-                <p><strong>Time:</strong> 08:00 am - 12:00 noon</p>
-                <p><strong>Venue:</strong> Via Zoom</p>
+                    <p><strong>Date:</strong> June 28, 2021</p>
+                    <p><strong>Time:</strong> 08:00 am - 12:00 noon</p>
+                    <p><strong>Venue:</strong> Via Zoom</p>
                 </div>
                 <div class="seminar-buttons">
-                <button class="seminar-button" onclick="register()">REGISTER</button>
-                <button class="seminar-button" onclick="attendance()">ATTENDANCE</button>
-                <button class="seminar-button" onclick="evaluation()">EVALUATION</button>
+                    <button class="seminar-button" onclick="register()">REGISTER</button>
+                    <button class="seminar-button" onclick="attendance()">ATTENDANCE</button>
+                    <button class="seminar-button" onclick="evaluation()">EVALUATION</button>
                 </div>
             `
         };

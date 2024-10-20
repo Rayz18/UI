@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Campaign</title>
+
+    <!-- Inherit the main Staff Dashboard styles -->
+    <link rel="stylesheet" href="../styles/staff/StaffDashboardMenu.css">
+    <link rel="stylesheet" href="../styles/staff/AddCampaign.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Reusing the Navigation Bar from Staff Dashboard -->
+    <nav class="user-navigation-bar">
+        <div class="user-nav-logo">
+            <img src="../images/BSU.png" alt="BSU Logo" class="user-logo">
+            <img src="../images/GAD.png" alt="GAD Logo" class="user-logo">
+            <div class="user-nav-titles">
+                <span class="user-nav-title main-title">BATANGAS STATE UNIVERSITY - THE NATIONAL ENGINEERING
+                    UNIVERSITY</span>
+                <span class="user-nav-title sub-title">Gender and Development Unit</span>
+            </div>
+        </div>
+
+        <ul class="user-nav-menu">
+            <li><a href="ProgramManagement.html">Program Management</a></li>
+            <li><a href="CampaignManagement.html">Campaign Management</a></li>
+        </ul>
+
+        <div class="user-profile-icon" onclick="togglePopup()">
+            <img src="../images/icon.png" alt="Profile" class="user-profile">
+        </div>
+
+        <div id="profile-popup" class="profile-popup" style="display: none;">
+            <div class="popup-content">
+                <h2 class="popup-title">WELCOME!</h2>
+                <p class="popup-text">Sign in to your account now.</p>
+                <button class="popup-btn signin-btn">SIGN IN</button>
+                <div class="separator"><span>OR</span></div>
+                <button class="popup-btn signup-btn">SIGN UP</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Campaign Tab Layout -->
+    <div class="campaign-container">
+        <div class="tab-menu">
+            <button class="tab-button active" onclick="switchTab(event, 'AddCampaign')">Add Campaign</button>
+            <button class="tab-button" onclick="switchTab(event, 'Images')">Images</button>
+            <button class="tab-button" onclick="switchTab(event, 'Videos')">Videos</button>
+            <button class="tab-button" onclick="switchTab(event, 'Materials')">Materials</button>
+            <button class="tab-button" onclick="switchTab(event, 'Infographics')">Infographics</button>
+        </div>
+
+        <!-- Tab Content Area for Add Campaign -->
+        <div class="content-area" id="AddCampaign" style="display: block;">
+            <iframe src="SetCampaign.html" class="campaign-iframe" frameborder="0"></iframe>
+        </div>
+
+        <!-- Tab Content Area for Images (Load Images.html inside an iframe) -->
+        <div class="content-area" id="Images" style="display: none;">
+            <iframe src="Images.html" class="campaign-iframe" frameborder="0"></iframe>
+        </div>
+
+        <!-- Tab Content Area for Videos (Load Videos.html inside an iframe) -->
+        <div class="content-area" id="Videos" style="display: none;">
+            <iframe src="Videos.html" class="campaign-iframe" frameborder="0"></iframe>
+        </div>
+
+        <!-- Tab Content Area for Materials (Load Materials.html inside an iframe) -->
+        <div class="content-area" id="Materials" style="display: none;">
+            <iframe src="Materials.html" class="campaign-iframe" frameborder="0"></iframe>
+        </div>
+
+        <!-- Tab Content Area for Infographics (Load Infographics.html inside an iframe) -->
+        <div class="content-area" id="Infographics" style="display: none;">
+            <iframe src="Infographics.html" class="campaign-iframe" frameborder="0"></iframe>
+        </div>
+
+
+        <!-- Other Tab Content Areas (as placeholders for now) -->
+        <div class="content-area" id="Videos" style="display: none;">
+            <h2>Content for Videos Tab</h2>
+        </div>
+        <div class="content-area" id="Materials" style="display: none;">
+            <h2>Content for Materials Tab</h2>
+        </div>
+        <div class="content-area" id="Infographics" style="display: none;">
+            <h2>Content for Infographics Tab</h2>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(event, tabName) {
+            const tabs = document.querySelectorAll('.tab-button');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+                tab.style.backgroundColor = 'white';
+            });
+
+            const contentSections = document.querySelectorAll('.content-area');
+            contentSections.forEach(section => {
+                section.style.display = 'none';
+            });
+
+            const clickedTab = event.target;
+            clickedTab.classList.add('active');
+            clickedTab.style.backgroundColor = 'lightgray';
+
+            const selectedContent = document.getElementById(tabName);
+            selectedContent.style.display = 'block';
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const firstTab = document.querySelector('.tab-button');
+            firstTab.click();
+        });
+
+    </script>
+
+</body>
+
+</html>

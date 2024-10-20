@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Upload Page</title>
+    <link rel="stylesheet" href="../styles/staff/Images.css"> <!-- External CSS file -->
+</head>
+
+<body>
+
+    <div class="images-upload-container">
+        <!-- Title aligned to the left -->
+        <h1 class="page-title">IMAGE UPLOAD PAGE</h1>
+
+        <!-- Description aligned on the same line as the title -->
+        <div class="description-section">
+            <p class="page-description">
+                Here you can upload images for the campaign. Drag and drop or choose files to upload. Once uploaded, you
+                can see a preview of each image along with options to remove it if needed.
+            </p>
+        </div>
+
+        <!-- Upload Button Container -->
+        <div class="upload-button-container">
+            <div class="left-section">
+                <label for="image-upload" class="upload-button">Choose Image</label>
+                <input type="file" id="image-upload" multiple accept="image/*" style="display:none;">
+                <span class="file-name" id="file-name">No image selected</span>
+            </div>
+
+            <div class="right-section">
+                <!-- Search Bar for image search functionality -->
+                <input type="text" id="search-bar" class="search-bar" placeholder="Search images...">
+
+                <!-- Filter Dropdown -->
+                <select id="filter-dropdown" class="filter-dropdown">
+                    <option value="all">All Dates</option>
+                    <option value="today">Today</option>
+                    <option value="7days">Last 7 Days</option>
+                    <option value="30days">Last 30 Days</option>
+                    <option value="favorites">Favorites</option>
+                </select>
+
+                <!-- Recycle Bin -->
+                <button id="recycle-bin-button" class="recycle-bin-button">
+                    <img src="../images/trash.png" alt="Recycle Bin" class="recycle-bin-image">
+                    Recycle Bin
+                    <span id="recycle-bin-count" class="recycle-bin-count">0</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Images List -->
+        <div id="images-list" class="images-list">
+            <!-- Images uploaded will be displayed here -->
+        </div>
+    </div>
+
+    <script>
+        // Variables
+        const inputFile = document.getElementById('image-upload');
+        const fileNameDisplay = document.getElementById('file-name');
+        const searchBar = document.getElementById('search-bar');
+        const filterDropdown = document.getElementById('filter-dropdown');
+        const imagesList = document.getElementById('images-list');
+        const recycleBinButton = document.getElementById('recycle-bin-button');
+        const recycleBinCount = document.getElementById('recycle-bin-count');
+
+        // Store uploaded and deleted images data
+        let imagesData = [];
+        let deletedImages = [];
+
+        // Handle file upload
+        inputFile.addEventListener('change', function () {
+            const files = Array.from(inputFile.files);
+            if (files.length > 0) {
+                fileNameDisplay.textContent = files.map(file => file.name).join(', ');
+
+                // Store image data
+                files.forEach(file => {
+                    const imageObject = {
+                        name: file.name,
+                        date: new Date(), // Assume upload date is today
+                        file: URL.createObjectURL(file),
+                        id: Date.now() + Math.random(), // Unique ID for each image
+                    };
+                    imagesData.push(imageObject);
+                });
+                renderImages();
+            } else {
+                fileNameDisplay.textContent = 'No image selected';
+            }
+        });
+
+        // Handle search functionality
+        searchBar.addEventListener('input', function () {
+            const query = searchBar.value.toLowerCase();
+            renderImages(query, filterDropdown.value);
+        });
+
+        // Handle filter dropdown functionality
+        filterDropdown.addEventListener('change', function () {
+            renderImages(searchBar.value.toLowerCase(), filterDropdown.value);
+        });
+
+        // Handle recycle bin click
+        recycleBinButton.addEventListener('click', function () {
+            if (deletedImages.length > 0) {
+                alert(`You have ${deletedImages.length} deleted image(s) in the recycle bin.`);
+            }
+        });
+
+        // Render images based on search and filter
+        function renderImages(searchQuery = '', filter = 'all') {
+            imagesList.innerHTML = ''; // Clear previous images
+
+            const filteredImages = imagesData.filter(image => {
+                const imageNameMatches = image.name.toLowerCase().includes(searchQuery);
+
+                // Filter based on date range
+                let dateMatches = true;
+                const today = new Date();
+                if (filter === 'today') {
+                    dateMatches = isSameDay(image.date, today);
+                } else if (filter === '7days') {
+                    const sevenDaysAgo = new Date();
+                    sevenDaysAgo.setDate(today.getDate() - 7);
+                    dateMatches = image.date >= sevenDaysAgo;
+                } else if (filter === '30days') {
+                    const thirtyDaysAgo = new Date();
+                    thirtyDaysAgo.setDate(today.getDate() - 30);
+                    dateMatches = image.date >= thirtyDaysAgo;
+                } else if (filter === 'favorites') {
+                    dateMatches = false;
+                }
+
+                return imageNameMatches && dateMatches;
+            });
+
+            // Display filtered images
+            filteredImages.forEach(image => {
+                const imageElement = document.createElement('div');
+                imageElement.classList.add('image-item');
+                imageElement.innerHTML = `
+                    <img src="${image.file}" alt="${image.name}" class="image-preview">
+                    <p class="image-name" title="${image.name}">${image.name}</p>
+                    <p class="image-date">Uploaded on: ${image.date.toLocaleDateString()}</p>
+                    <button class="delete-button" data-id="${image.id}">Delete</button>
+                `;
+                imagesList.appendChild(imageElement);
+
+                // Attach delete button functionality
+                imageElement.querySelector('.delete-button').addEventListener('click', function () {
+                    deleteImage(image.id);
+                });
+            });
+        }
+
+        // Delete image and move to recycle bin
+        function deleteImage(imageId) {
+            const imageToDelete = imagesData.find(img => img.id === imageId);
+            deletedImages.push(imageToDelete);
+            imagesData = imagesData.filter(img => img.id !== imageId);
+
+            // Update recycle bin count
+            recycleBinCount.textContent = deletedImages.length;
+
+            // Re-render images
+            renderImages(searchBar.value.toLowerCase(), filterDropdown.value);
+        }
+
+        // Utility function to compare dates
+        function isSameDay(date1, date2) {
+            return date1.getFullYear() === date2.getFullYear() &&
+                date1.getMonth() === date2.getMonth() &&
+                date1.getDate() === date2.getDate();
+        }
+    </script>
+
+</body>
+
+</html>
