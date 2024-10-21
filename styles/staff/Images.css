@@ -1,0 +1,380 @@
+/* Basic reset */
+html, body {
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+/* Page Title aligned to the left */
+.page-title {
+    font-size: 2em;
+    font-weight: bold;
+    color: rgb(67, 24, 116);
+    text-align: left;
+    margin-bottom: 10px;
+    padding-left: 0px;
+    margin-top: 0;
+    padding-right: 10px;
+}
+
+/* Description section aligned to the left */
+.description-section {
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 0px;
+    margin-top: 0;
+}
+
+.page-description {
+    color: rgb(67, 24, 116);
+    font-size: 1em;
+    margin: 0;
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Upload Container */
+.images-upload-container {
+    padding: 20px;
+    width: calc(100% - 60px);
+    margin: 0;
+    text-align: left;
+    box-shadow: none;
+}
+
+/* Upload Button Container */
+.upload-button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding-left: 0px;
+}
+
+/* Left Section */
+.left-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Upload button */
+.upload-button {
+    padding: 10px 25px;
+    background-color: #6a0dad;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-left: -10px;
+}
+
+.upload-button:hover {
+    background-color: #8a2be2;
+}
+
+/* Display selected file name */
+.file-name {
+    font-size: 1em;
+    color: #333;
+    margin-left: 10px;
+}
+
+/* Right Section */
+.right-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-right: -10px;
+}
+
+/* Search bar styling */
+.search-bar {
+    padding: 8px 12px;
+    padding-right: 40px;
+    border-radius: 16px;
+    border: 2px solid #8a2be2;
+    font-size: 0.9em;
+    outline: none;
+    width: 200px;
+    height: 20px;
+}
+
+/* Filter dropdown */
+.filter-dropdown {
+    padding: 8px;
+    border-radius: 20px;
+    border: 2px solid #8a2be2;
+    outline: none;
+    font-size: 0.9em;
+    cursor: pointer;
+}
+
+/* Recycle Bin button */
+.recycle-bin-button {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    border-radius: 20px;
+    border: 2px solid #8a2be2;
+    background-color: #fff;
+    cursor: pointer;
+    font-size: 0.9em;
+    position: relative;
+    margin-right: -10px;
+}
+
+.recycle-bin-image {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
+
+.recycle-bin-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #e74c3c;
+    color: #fff;
+    border-radius: 50%;
+    padding: 3px 6px;
+    font-size: 0.8em;
+}
+
+/* Images List */
+.images-list {
+    display: flex;
+    flex-wrap: wrap;  /* Ensures wrapping after each row is filled */
+    gap: 11.5px;
+    justify-content: flex-start;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 20px;
+    margin-left: 5px !important;
+    overflow-y: auto; /* Enables vertical scroll if necessary */
+    max-height: 100vh; /* Ensures the list adjusts properly to the viewport height */
+}
+
+/* Image Item */
+.image-item {
+    flex: 1 1 calc(14.28% - 10px); /* Adjusted to make sure 7 images per row */
+    max-width: calc(14.28% - 10px); 
+    height: 310px;
+    border-radius: 15px;
+    background-color: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px rgba(67, 24, 116, 0.5);
+    padding-bottom: 15px;
+    position: relative;
+    margin-bottom: 15px; /* Added margin to ensure spacing between rows */
+}
+
+/* Image Preview */
+.image-preview {
+    width: 100%;
+    height: 32%;
+    object-fit: cover;
+    border-bottom: 1px solid #ccc;
+    border-radius: 15px 15px 0 0;
+}
+
+/* Image Checkbox */
+.image-checkbox {
+    position: absolute;
+    top: 7px;
+    left: 10px;
+    z-index: 1;
+    border-radius: 5px;
+}
+
+/* Star Icon */
+.star-icon {
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top: 7px;
+    right: 10px;
+    cursor: pointer;
+}
+
+/* Active star: change color to yellow-orange to indicate it is a favorite */
+.star-icon.active {
+    filter: none;
+    background-color: #FFDD57;
+    border-radius: 50%;
+    padding: 2px;
+}
+
+/* Image Name Container */
+.image-name-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5px;
+}
+
+/* Image Info */
+.image-name {
+    font-size: 0.85em;
+    font-weight: bold;
+    color: rgb(67, 24, 116);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 80%;
+    margin-left: 8px;
+    margin-top: 4px;
+    position: relative;
+    top: -5px;
+}
+
+/* Edit Icon */
+.edit-icon {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    margin-left: 5px;
+    position: relative;
+    top: -9px;
+}
+
+/* Image Date & Time */
+.image-date {
+    font-size: 0.75em;
+    color: #777;
+    margin: 0;
+    margin-left: 8px;
+    display: block;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.image-time {
+    font-size: 0.75em;
+    color: #777;
+    margin: 0;
+    margin-left: 8px;
+    display: block;
+    text-align: left;
+    white-space: nowrap;
+    padding-bottom: 7px;
+}
+
+/* Delete Button */
+.delete-button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 6px 12px;
+    margin-top: 7px;
+    margin-left: 100px;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    background-color: #c0392b;
+}
+
+/* Recycle Bin Popup */
+.recycle-bin-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+    width: 50%;
+    max-height: 80%;
+    overflow-y: auto;
+}
+
+/* Deleted Image List */
+.deleted-images-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.deleted-image-item {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    align-items: center;
+}
+
+.deleted-image-preview {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.deleted-image-details {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: space-between;
+    flex: 1;
+}
+
+.deleted-image-name {
+    font-size: 14px;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-grow: 1;
+}
+
+/* Restore and Delete Permanently buttons */
+.restore-button,
+.delete-permanently-button {
+    background-color: #6a0dad;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.restore-button:hover,
+.delete-permanently-button:hover {
+    background-color: #8a2be2;
+}
+
+.clear-recycle-bin {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.clear-recycle-bin:hover {
+    background-color: #c0392b;
+}
+
+/* Close Recycle Bin */
+.close-recycle-bin {
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.close-recycle-bin:hover {
+    background-color: #555;
+}
