@@ -18,7 +18,8 @@
         <div class="description-section">
             <p class="page-description">
                 Here you can upload images for the campaign. Drag and drop or choose files to upload. Once uploaded, you
-                can see a preview of each image along with options to remove it if needed.
+                can see a preview of each image along with options to remove it
+                <br>if needed.
             </p>
         </div>
 
@@ -52,6 +53,16 @@
             </div>
         </div>
 
+        <!-- Recycle Bin Popup -->
+        <div id="recycle-bin-popup" class="recycle-bin-popup" style="display:none;">
+            <h3>Recycle Bin</h3>
+            <div id="deleted-images-list" class="deleted-images-list">
+                <!-- Deleted images will be shown here -->
+            </div>
+            <button id="clear-recycle-bin" class="clear-recycle-bin">Clear All Deleted Images</button>
+            <button class="close-recycle-bin" onclick="closeRecycleBin()">Close</button>
+        </div>
+
         <!-- Images List -->
         <div id="images-list" class="images-list">
             <!-- Images uploaded will be displayed here -->
@@ -66,11 +77,23 @@
         const filterDropdown = document.getElementById('filter-dropdown');
         const imagesList = document.getElementById('images-list');
         const recycleBinButton = document.getElementById('recycle-bin-button');
+        const recycleBinPopup = document.getElementById('recycle-bin-popup');
+        const deletedImagesList = document.getElementById('deleted-images-list');
+        const clearRecycleBinButton = document.getElementById('clear-recycle-bin');
         const recycleBinCount = document.getElementById('recycle-bin-count');
 
-        // Store uploaded and deleted images data
+        // Store uploaded, deleted, and favorite images data
         let imagesData = [];
         let deletedImages = [];
+        let selectedImages = [];
+
+        // Function to truncate image name
+        function truncateImageName(name, limit = 15) {
+            if (name.length > limit) {
+                return name.slice(0, limit) + '...';
+            }
+            return name;
+        }
 
         // Handle file upload
         inputFile.addEventListener('change', function () {
@@ -85,6 +108,7 @@
                         date: new Date(), // Assume upload date is today
                         file: URL.createObjectURL(file),
                         id: Date.now() + Math.random(), // Unique ID for each image
+                        isFavorite: false, // Initialize favorite status as false
                     };
                     imagesData.push(imageObject);
                 });
@@ -105,12 +129,99 @@
             renderImages(searchBar.value.toLowerCase(), filterDropdown.value);
         });
 
-        // Handle recycle bin click
+        // Handle Recycle Bin button click (to view deleted images)
         recycleBinButton.addEventListener('click', function () {
-            if (deletedImages.length > 0) {
-                alert(`You have ${deletedImages.length} deleted image(s) in the recycle bin.`);
+            openRecycleBin();
+        });
+
+        // Open Recycle Bin
+        function openRecycleBin() {
+            if (deletedImages.length === 0) {
+                alert("Recycle Bin is empty.");
+            } else {
+                recycleBinPopup.style.display = 'block';
+                renderDeletedImages();
+            }
+        }
+
+        // Close Recycle Bin
+        function closeRecycleBin() {
+            recycleBinPopup.style.display = 'none';
+        }
+
+        // Render deleted images in the Recycle Bin
+        function renderDeletedImages() {
+            deletedImagesList.innerHTML = ''; // Clear previous list
+
+            deletedImages.forEach(image => {
+                const imageElement = document.createElement('div');
+                imageElement.classList.add('deleted-image-item');
+
+                imageElement.innerHTML = `
+                    <div class="deleted-image-details">
+                        <img src="${image.file}" alt="${image.name}" class="deleted-image-preview">
+                        <p class="deleted-image-name">${image.name}</p>
+                        <div class="actions">
+                            <button class="restore-button" data-id="${image.id}">Restore</button>
+                            <button class="delete-permanently-button" data-id="${image.id}">Delete Permanently</button>
+                        </div>
+                    </div>
+                `;
+
+                deletedImagesList.appendChild(imageElement);
+
+                // Restore image
+                imageElement.querySelector('.restore-button').addEventListener('click', function () {
+                    restoreImage(image.id);
+                });
+
+                // Delete permanently
+                imageElement.querySelector('.delete-permanently-button').addEventListener('click', function () {
+                    deleteImagePermanently(image.id);
+                });
+            });
+        }
+
+        // Restore image from Recycle Bin
+        function restoreImage(imageId) {
+            const imageToRestore = deletedImages.find(img => img.id === imageId);
+            imagesData.push(imageToRestore);
+            deletedImages = deletedImages.filter(img => img.id !== imageId);
+
+            renderImages(); // Refresh the images list
+            renderDeletedImages(); // Refresh the recycle bin list
+
+            recycleBinCount.textContent = deletedImages.length; // Update recycle bin count
+        }
+
+        // Delete image permanently from Recycle Bin
+        function deleteImagePermanently(imageId) {
+            const confirmed = confirm("Are you sure you want to delete this image permanently?");
+            if (confirmed) {
+                deletedImages = deletedImages.filter(img => img.id !== imageId);
+                renderDeletedImages(); // Refresh the recycle bin list
+                recycleBinCount.textContent = deletedImages.length; // Update recycle bin count
+            }
+        }
+
+        // Clear all deleted images from Recycle Bin
+        clearRecycleBinButton.addEventListener('click', function () {
+            const confirmed = confirm("Are you sure you want to clear all deleted images?");
+            if (confirmed) {
+                deletedImages = [];
+                recycleBinCount.textContent = '0'; // Reset recycle bin count
+                closeRecycleBin(); // Close the recycle bin
             }
         });
+
+        // Handle checkbox change to select images
+        function handleCheckboxChange(imageId, isChecked) {
+            if (isChecked) {
+                selectedImages.push(imageId);
+            } else {
+                selectedImages = selectedImages.filter(id => id !== imageId);
+            }
+        }
 
         // Render images based on search and filter
         function renderImages(searchQuery = '', filter = 'all') {
@@ -119,7 +230,7 @@
             const filteredImages = imagesData.filter(image => {
                 const imageNameMatches = image.name.toLowerCase().includes(searchQuery);
 
-                // Filter based on date range
+                // Filter based on date range or favorites
                 let dateMatches = true;
                 const today = new Date();
                 if (filter === 'today') {
@@ -133,7 +244,7 @@
                     thirtyDaysAgo.setDate(today.getDate() - 30);
                     dateMatches = image.date >= thirtyDaysAgo;
                 } else if (filter === 'favorites') {
-                    dateMatches = false;
+                    dateMatches = image.isFavorite;
                 }
 
                 return imageNameMatches && dateMatches;
@@ -143,19 +254,76 @@
             filteredImages.forEach(image => {
                 const imageElement = document.createElement('div');
                 imageElement.classList.add('image-item');
+
+                // Format the date and time
+                const uploadDate = image.date.toLocaleDateString();
+                const uploadTime = image.date.toLocaleTimeString();
+                const truncatedName = truncateImageName(image.name);
+
                 imageElement.innerHTML = `
+                    <input type="checkbox" class="image-checkbox" data-id="${image.id}" style="position: absolute; top: 5px; left: 5px;">
                     <img src="${image.file}" alt="${image.name}" class="image-preview">
-                    <p class="image-name" title="${image.name}">${image.name}</p>
-                    <p class="image-date">Uploaded on: ${image.date.toLocaleDateString()}</p>
+                    <img src="../images/star.png" alt="Favorite" class="star-icon ${image.isFavorite ? 'active' : ''}" data-id="${image.id}">
+                    <div class="image-name-container">
+                        <p class="image-name" title="${image.name}">${truncatedName}</p>
+                        <img src="../images/edit.png" alt="Edit" class="edit-icon" data-id="${image.id}">
+                    </div>
+                    <p class="image-date">Uploaded on: ${uploadDate}</p>
+                    <p class="image-time">${uploadTime}</p>
                     <button class="delete-button" data-id="${image.id}">Delete</button>
                 `;
                 imagesList.appendChild(imageElement);
 
                 // Attach delete button functionality
                 imageElement.querySelector('.delete-button').addEventListener('click', function () {
-                    deleteImage(image.id);
+                    deleteSelectedImages(image.id);
+                });
+
+                // Attach edit button functionality
+                imageElement.querySelector('.edit-icon').addEventListener('click', function () {
+                    editImageName(image.id);
+                });
+
+                // Attach star (favorite) toggle functionality
+                imageElement.querySelector('.star-icon').addEventListener('click', function () {
+                    toggleFavorite(image.id);
+                });
+
+                // Attach checkbox functionality for bulk delete
+                imageElement.querySelector('.image-checkbox').addEventListener('change', function (event) {
+                    handleCheckboxChange(image.id, event.target.checked);
                 });
             });
+        }
+
+        // Toggle favorite status
+        function toggleFavorite(imageId) {
+            const imageToToggle = imagesData.find(img => img.id === imageId);
+            imageToToggle.isFavorite = !imageToToggle.isFavorite; // Toggle favorite status
+            renderImages(searchBar.value.toLowerCase(), filterDropdown.value); // Re-render to reflect the change
+        }
+
+        // Edit image name
+        function editImageName(imageId) {
+            const imageToEdit = imagesData.find(img => img.id === imageId);
+            const newName = prompt("Edit image name:", imageToEdit.name);
+            if (newName) {
+                imageToEdit.name = newName;
+                renderImages(searchBar.value.toLowerCase(), filterDropdown.value); // Re-render images to reflect the updated name
+            }
+        }
+
+        // Delete selected images or the one clicked
+        function deleteSelectedImages(imageId) {
+            const confirmed = confirm("Are you sure you want to delete the selected image(s)?");
+            if (confirmed) {
+                if (selectedImages.length > 0) {
+                    selectedImages.forEach(id => deleteImage(id));
+                } else {
+                    deleteImage(imageId);
+                }
+                selectedImages = [];
+            }
         }
 
         // Delete image and move to recycle bin
